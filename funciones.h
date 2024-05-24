@@ -167,6 +167,59 @@ public:
     }
 };
 
+class Habitacion {
+	private:
+		int numero;
+		std::string tipo;       // Tipo de habitación: sencilla, doble, suite, etc.
+		bool disponible;
+		double precioPorNoche;
 
+	public:
+		// Constructor
+		Habitacion(int num, std::string tipoHabitacion, bool disp, double precio)
+			: numero(num), tipo(tipoHabitacion), disponible(disp), precioPorNoche(precio) {}
+
+		// Getters
+		int getNumero() const {
+			return numero;
+		}
+
+		std::string getTipo() const {
+			return tipo;
+		}
+
+		bool isDisponible() const {
+			return disponible;
+		}
+
+		double getPrecioPorNoche() const {
+			return precioPorNoche;
+		}
+
+		// Setters
+		void setNumero(int num) {
+			numero = num;
+		}
+
+		void setTipo(const std::string& tipoHabitacion) {
+			tipo = tipoHabitacion;
+		}
+
+		void setDisponible(bool disp) {
+			disponible = disp;
+		}
+
+		void setPrecioPorNoche(double precio) {
+			precioPorNoche = precio;
+		}
+
+		// Método para mostrar información de la habitación
+		void mostrarInformacion() const {
+			std::cout << "Numero: " << numero << std::endl;
+			std::cout << "Tipo: " << tipo << std::endl;
+			std::cout << "Disponible: " << (disponible ? "Si" : "No") << std::endl;
+			std::cout << "Precio por Noche: $" << precioPorNoche << std::endl;
+		}
+};
 
 
