@@ -170,13 +170,14 @@ public:
 class Habitacion {
 	private:
 		int numero;
-		std::string tipo;       // Tipo de habitación: sencilla, doble, suite, etc.
+		string tipo;       // Tipo de habitación: sencilla, doble, suite, etc.
 		bool disponible;
 		double precioPorNoche;
 
 	public:
 		// Constructor
-		Habitacion(int num, std::string tipoHabitacion, bool disp, double precio)
+        Habitacion() : numero(-1), disponible(0), precioPorNoche(-1){}
+		Habitacion(int num, string tipoHabitacion, bool disp, double precio)
 			: numero(num), tipo(tipoHabitacion), disponible(disp), precioPorNoche(precio) {}
 
 		// Getters
@@ -184,7 +185,7 @@ class Habitacion {
 			return numero;
 		}
 
-		std::string getTipo() const {
+		string getTipo() const {
 			return tipo;
 		}
 
@@ -201,7 +202,7 @@ class Habitacion {
 			numero = num;
 		}
 
-		void setTipo(const std::string& tipoHabitacion) {
+		void setTipo(const string& tipoHabitacion) {
 			tipo = tipoHabitacion;
 		}
 
@@ -215,11 +216,49 @@ class Habitacion {
 
 		// Método para mostrar información de la habitación
 		void mostrarInformacion() const {
-			std::cout << "Numero: " << numero << std::endl;
-			std::cout << "Tipo: " << tipo << std::endl;
-			std::cout << "Disponible: " << (disponible ? "Si" : "No") << std::endl;
-			std::cout << "Precio por Noche: $" << precioPorNoche << std::endl;
+			cout << "Numero: " << numero << endl;
+			cout << "Tipo: " << tipo << endl;
+			cout << "Disponible: " << (disponible ? "Si" : "No") << endl;
+			cout << "Precio por Noche: $" << precioPorNoche << endl;
 		}
 };
+class Hotel {
+private:
+    string nombre;
+    string ubicacion;
+    string contacto;
+    Usuario usuarios[3];
+    Habitacion habitaciones[10];
 
+public:
+    Hotel(const string& _nombre, const string& _ubicacion, const string& _contacto, Usuario _usuarios[], Habitacion _habitaciones[]);
 
+    void mostrarInformacion();
+};
+
+Hotel::Hotel(const string& _nombre, const string& _ubicacion, const string& _contacto, Usuario _usuarios[], Habitacion _habitaciones[])
+    : nombre(_nombre), ubicacion(_ubicacion), contacto(_contacto) 
+{
+    for (int i = 0; i < 3; ++i) {
+        usuarios[i] = _usuarios[i];
+    }
+    for (int i = 0; i < 10; ++i) {
+        habitaciones[i] = _habitaciones[i];
+    }
+}
+
+void Hotel::mostrarInformacion() {
+    cout << "Nombre del hotel: " << nombre << endl;
+    cout << "Ubicacion: " << ubicacion << endl;
+    cout << "Contacto: " << contacto << endl;
+    cout << "\nUsuarios:" << endl;
+    for (int i = 0; i < 3; ++i) {
+        usuarios[i].mostrarInformacion();
+        cout << "---------------------------" << endl;
+    }
+    cout << "\nHabitaciones:" << endl;
+    for (int i = 0; i < 10; ++i) {
+        habitaciones[i].mostrarInformacion();
+        cout << "---------------------------" << endl;
+    }
+}
