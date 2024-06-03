@@ -4,7 +4,7 @@ int main() {
     ListadeHabitaciones listaHabitaciones;
 
     // Crear un hotel
-    Hotel hotel("Hotel Ejemplo", "Calle Principal", "123456789", ListadeUsuarios(), listaHabitaciones);
+    Hotel hotel("Hotel el cielo", "Av. el sol", "123456789", ListadeUsuarios(), listaHabitaciones);
 
     // Iniciar sesión
     SistemaLogin sistemaLogin;
