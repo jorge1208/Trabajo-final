@@ -92,19 +92,118 @@ public:
     void inicio();
 };
 
+//Class istausuarios
+
+class ListadeUsuarios {
+private:
+    Usuario* usuarios;
+    int numeroUsuarios;
+
+public:
+    ListadeUsuarios();
+    ~ListadeUsuarios();
+    void agregarUsuario(const Usuario& usuario);
+    void eliminarUsuario(const string& dni);
+    Usuario* buscarUsuario(const string& dni);
+    void mostrarUsuarios() const;
+};
+class ListadeHabitaciones {
+private:
+    Habitacion* habitaciones;
+    int numeroHabitaciones;
+
+public:
+    ListadeHabitaciones();
+    ~ListadeHabitaciones();
+    void agregarHabitacion(const Habitacion& habitacion);
+    void eliminarHabitacion(int numeroHabitacion);
+    Habitacion* buscarHabitacion(int numeroHabitacion);
+    void mostrarHabitaciones() const;
+};
+class Reserva {
+private:
+    Usuario* usuario;
+    Habitacion* habitacion;
+    int diaEntrada;
+    int mesEntrada;
+    int añoEntrada;
+    int diaSalida;
+    int mesSalida;
+    int añoSalida;
+    bool confirmada;
+
+public:
+    Reserva(Usuario* _usuario, Habitacion* _habitacion, int _diaEntrada, int _mesEntrada, int _añoEntrada, int _diaSalida, int _mesSalida, int _añoSalida)
+        : usuario(_usuario), habitacion(_habitacion), diaEntrada(_diaEntrada), mesEntrada(_mesEntrada), añoEntrada(_añoEntrada),
+          diaSalida(_diaSalida), mesSalida(_mesSalida), añoSalida(_añoSalida), confirmada(false) {}
+
+    void confirmar() { confirmada = true; }
+    void cancelar() { confirmada = false; }
+    
+    void mostrarInformacion() const {
+        cout << "Reserva de " << usuario->getNombre() << " en la habitacion " << habitacion->getNumero() << endl;
+        cout << "Fecha de entrada: " << diaEntrada << "/" << mesEntrada << "/" << añoEntrada << endl;
+        cout << "Fecha de salida: " << diaSalida << "/" << mesSalida << "/" << añoSalida << endl;
+        cout << "Estado: " << (confirmada ? "Confirmada" : "No confirmada") << endl;
+    }
+};
+
+class Servicio {
+private:
+    string nombre;
+    double precio;
+    string descripcion;
+
+public:
+    Servicio(const string& _nombre, double _precio, const string& _descripcion)
+        : nombre(_nombre), precio(_precio), descripcion(_descripcion) {}
+
+    string getNombre() const { return nombre; }
+    double getPrecio() const { return precio; }
+    string getDescripcion() const { return descripcion; }
+
+    void mostrarInformacion() const {
+        cout << "Servicio: " << nombre << endl;
+        cout << "Precio: $" << precio << endl;
+        cout << "Descripcion: " << descripcion << endl;
+    }
+};
+class Factura {
+private:
+    Usuario* usuario;
+    double total;
+    string detalles;
+
+public:
+    Factura(Usuario* _usuario, double _total, const string& _detalles)
+        : usuario(_usuario), total(_total), detalles(_detalles) {}
+
+    void mostrarInformacion() const {
+        cout << "Factura para " << usuario->getNombre() << endl;
+        cout << "Total: $" << total << endl;
+        cout << "Detalles: " << detalles << endl;
+    }
+};
+
+
 class Hotel {
 private:
     string nombre;
     string ubicacion;
-    string contacto;
-    int numeroUsuarios;
-    int numeroHabitaciones;
-    Usuario* usuarios;
-    Habitacion* habitaciones;
+    ListadeUsuarios listaUsuarios;
+    ListadeHabitaciones listaHabitaciones;
 
 public:
-    Hotel(const string& _nombre, const string& _ubicacion, const string& _contacto, Usuario _usuarios[], int _numUsuarios, Habitacion _habitaciones[], int _numHabitaciones);
-    ~Hotel();
+    string contacto;
+    Hotel(const string& _nombre, const string& _ubicacion, const string& _contacto, ListadeUsuarios _listaUsuarios, ListadeHabitaciones _listaHabitaciones)
+        : nombre(_nombre), ubicacion(_ubicacion), contacto(_contacto), listaUsuarios(_listaUsuarios), listaHabitaciones(_listaHabitaciones) {}
+
     void mostrarInformacion();
+
+    // Métodos para agregar y quitar usuarios
+    void agregarUsuario(const Usuario& usuario);
+    void eliminarUsuario(const string& dni);
+    
 };
+
 
