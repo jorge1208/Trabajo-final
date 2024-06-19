@@ -1,7 +1,7 @@
-#ifndef USUARIO_HEADER_FILE_H  
-#define USUARIO_HEADER_FILE_H
+#ifndef EMPLEADO_HEADER_FILE_H  
+#define EMPLEADO_HEADER_FILE_H
 #include<iostream>  
 
 
 
-#endif // USUARIO_HEADER_FILE_H  
+#endif // EMPLEADO_HEADER_FILE_H  
