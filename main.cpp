@@ -1,45 +1,17 @@
+#include "Cadena.hpp"
+#include "Empleado.hpp"
 #include <iostream>
-#include <string>
-using namespace std;
-int main()
-{	
-	int a;
-	cin>>a;
-	for (int i {0}; i < a ; i++)
-	{
-		int b;
-		cin>>b;
-		string s;
-		cin>>s;
-		int counter{0};
-		for(int j = 0; j<b ; j++)
-		{
-			if(s[j]=='1')
-			{
-				if(counter % 2 == 0)
-				{
-					if(j != 0){
-					cout<<"+";}
-				}
-				else
-				{
-					cout<<"-";
-				}
-				counter++;
-			}
-			else
-			{
-				if( j != 0)
-				{
-				cout<<"+";
-				}
-			}
-		}	
-		cout<<"\n";
 
-	}
-	
+int main() {
+    char tmp_nombre[128];
+    std::cout << "Ingrese nombre: ";
+    std::cin.getline(tmp_nombre, 128);
+    cadena Hola(tmp_nombre);
+    Hola.mostrar_cadena();
 
+    char tmp_nombre2[128] = "hola";
+    Hola.modificar_cadena(tmp_nombre2);
+    Hola.mostrar_cadena();
 
-	return 0; 
+    return 0;
 }
