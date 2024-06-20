@@ -1,7 +1,13 @@
 #include "Empleado.hpp"
 #include <iostream>
 
-empleado::empleado() : edad(-1), dia(-1), mes(-1), anio(-1) {}
+empleado::empleado()
+{
+    edad = -1;
+    dia = -1;
+    mes = -1; 
+    anio = -1;
+}
 
 empleado::empleado(char* _nombre, char* _id, char* _domicilio, char* _celular, char* _cargo, int _edad, int _dia, int _mes, int _anio)
 {
