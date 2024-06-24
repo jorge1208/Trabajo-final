@@ -13,19 +13,25 @@ int main() {
 
     switch(opcion){
         case 1: {
+            int opcion2;
             std::cout << "Opcion habitacion seleccionada" << std::endl;
-            switch(){
+            std::cin >> opcion2;
+            switch(opcion2){
             } 
         }
         case 2: {
+            int opcion3;
             std::cout << "Opcion reserva seleccionada" << std::endl;
-            switch(){
+            std::cin >> opcion3;
+            switch(opcion3){
                 
             }
         }
         case 3: {
+            int opcion4;
             std::cout << "Opcion reserva seleccionada" << std::endl;
-            switch(){
+            std::cin >> opcion4;
+            switch(opcion4){
                 
             }
         }
