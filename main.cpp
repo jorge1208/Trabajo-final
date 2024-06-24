@@ -3,15 +3,35 @@
 #include <iostream>
 
 int main() {
-    char tmp_nombre[128];
-    std::cout << "Ingrese nombre: ";
-    std::cin.getline(tmp_nombre, 128);
-    cadena Hola(tmp_nombre);
-    Hola.mostrar_cadena();
+    int opcion;
+    std::cout << "1.Opcion habitacion" << std::endl;
+    std::cout << "2.Opcion reserva" << std::endl;
+    std::cout << "3.Opcion cliente" << std::endl;
+    std::cout << "Elija una opcion: " << std::endl;
 
-    char tmp_nombre2[128] = "hola";
-    Hola.modificar_cadena(tmp_nombre2);
-    Hola.mostrar_cadena();
+    std::cin >> opcion;
 
+    switch(opcion){
+        case 1: {
+            std::cout << "Opcion habitacion seleccionada" << std::endl;
+            switch(){
+            } 
+        }
+        case 2: {
+            std::cout << "Opcion reserva seleccionada" << std::endl;
+            switch(){
+                
+            }
+        }
+        case 3: {
+            std::cout << "Opcion reserva seleccionada" << std::endl;
+            switch(){
+                
+            }
+        }
+        default: 
+            std::cout << "Opcion no valida" << std::endl;
+    }
+    
     return 0;
 }
